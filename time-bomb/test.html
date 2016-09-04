@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+	<meta charset="utf-8" />	
+	<title></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<style>
+a#party {
+	position: relative;
+	display: block;
+	z-index: 10;
+}
+div.bomb-small {
+	position: relative;
+	display: block;
+	float: left;
+	margin: 50px 100px;
+	width: 150px;
+	height: 150px;
+	z-index: 2;
+	-webkit-animation: bomb-small 10s ease-out forwards;
+}		
+	@-webkit-keyframes bomb-small {
+		0%   	{ -webkit-transform:rotate(0deg); left: 0%; }
+		20%		{ -webkit-transform:rotate(720deg); left: 10%;  }
+		100%	{ -webkit-transform:rotate(720deg); left: 10%; display: none; visibility: hidden; margin: 0; }
+	}
+	div.bomb-small div.shake {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 100%;
+		-webkit-animation: shake 0.5s linear 5s forwards;
+		-webkit-transform-origin: 50% 50%;
+	}
+		@-webkit-keyframes shake {
+			0%   	{  }
+			10%		{ -webkit-transform:rotate(3deg);	top:  5px;	left:  -5px; }
+			20%		{ -webkit-transform:rotate(-3deg);	top: -5px;	right: -5px; }
+			30%		{ -webkit-transform:rotate(3deg);	top:  5px;	left:  -5px; }
+			40%		{ -webkit-transform:rotate(-3deg);	top: -5px;	right: -5px; }
+			50%		{ -webkit-transform:rotate(3deg);	top:  5px;	left:  -5px; }
+			60%		{ -webkit-transform:rotate(-3deg);	top: -5px;	right: -5px; }
+			70%		{ -webkit-transform:rotate(3deg);	top:  5px;	left:  -5px; }
+			80%		{ -webkit-transform:rotate(-3deg);	top: -5px;	right: -5px; }
+			90%		{ -webkit-transform:rotate(3deg);	top:  5px;	left:  -5px; }
+			100%	{  }
+		}
+	div.bomb-small div.cap {
+		position: absolute;
+		top: -15px;
+		left: 50px;
+		display: block;
+		margin: auto;
+		width: 50px;
+		height: 25px;
+		background: #000;
+		background-image: -webkit-linear-gradient(left , #000 0%, #444 30%, #000 60%);
+		border-top-left-radius: 5% 5%;
+		border-top-right-radius: 5% 5%;
+		border-bottom-left-radius: 50% 5%;
+		border-bottom-right-radius: 50% 5%;
+		z-index: 5;
+			-webkit-animation: cap 0.5s linear 5.5s forwards;
+	}
+			@-webkit-keyframes cap {
+				0%   	{ opacity: 1; }
+				90%   	{ opacity: 1; }
+				100%	{ opacity: 0; top: -1000px; left: -500px; -webkit-transform:rotate(-360deg); }
+			}
+	div.bomb-small div.shard {
+		position: absolute;
+		width: 75px;
+		height: 75px;
+		background: #000;
+		z-index: 3;
+	}
+		div.one {
+			top: 0;
+			left: 0;
+			border-top-left-radius: 100% 100%;
+			-webkit-animation: one 0.5s linear 5.5s forwards;
+		}
+			@-webkit-keyframes one {
+				0%   	{ opacity: 1; }
+				90%   	{ opacity: 1; }
+				100%	{ opacity: 0; top: -1000px; left: -1000px; -webkit-transform:rotate(-360deg); }
+			}
+		div.two {
+			top: 0;
+			right: 0;
+			border-top-right-radius: 100% 100%;
+			-webkit-animation: two 0.5s linear 5.5s forwards;
+		}
+			@-webkit-keyframes two {
+				0%   	{ opacity: 1; }
+				90%   	{ opacity: 1; }
+				100%	{ opacity: 0; top: -500px; right: -1000px; -webkit-transform:rotate(-360deg); }
+			}
+		div.three {
+			bottom: 0;
+			left: 0;
+			border-bottom-left-radius: 100% 100%;
+			-webkit-animation: three 0.5s linear 5.5s forwards;
+		}	
+			@-webkit-keyframes three {
+				0%   	{ opacity: 1; }
+				90%   	{ opacity: 1; }
+				100%	{ opacity: 0; bottom: -750px; left: -1000px; -webkit-transform:rotate(-360deg); }
+			}
+		div.four {
+			bottom: 0;
+			right: 0;
+			border-bottom-right-radius: 100% 100%;
+			-webkit-animation: four 0.5s linear 5.5s forwards;
+		}
+			@-webkit-keyframes four {
+				0%   	{ opacity: 1; }
+				90%   	{ opacity: 1; }
+				100%	{ opacity: 0; bottom: -800px; right: -1000px; -webkit-transform:rotate(-360deg); }
+			}
+			
+	div.bomb-small div.bomb-glow,
+	div.bomb-small div.fire {
+		width: 150px;
+		height: 150px;
+	}
+	div.bomb-small div.bomb-glow {
+		position: absolute;
+		display: block;
+		background: #000;
+		background-image: -webkit-radial-gradient(30% 30%, circle closest-side, #666, #000 100%);
+		border-radius: 50%;
+		z-index: 4;
+		-webkit-animation: bomb-small-glow-rotate 5.5s ease-out forwards;
+	}
+		@-webkit-keyframes bomb-small-glow-rotate {
+			0%   	{ -webkit-transform:rotate(0deg); }
+			26.7%	{ -webkit-transform:rotate(-720deg); }
+			26.8%	{ -webkit-transform:rotate(0deg); }
+			99.9%  	{ opacity: 1; }
+			100%	{ opacity: 0; }
+		}
+	div.bomb-small div.wick {
+			position: absolute;
+			top: -60px;
+			left: 75px;
+			display: block;
+			width: 100px;
+			height: 100px;
+			z-index: 1;
+		}
+			div.bomb-small div.wick-cover {
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 100%;
+				margin: 2px 0 0 2px;
+				background: #fff;
+				border-radius: 50%;
+				z-index: 2;
+				-webkit-animation: wick-cover 0.5s linear 5s forwards;
+			}
+				@-webkit-keyframes wick-cover {
+					0%   	{  }
+					99.9%	{ opacity: 1; }
+					100%	{ opacity: 0; }
+				}
+			div.wick-color {
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-image: -webkit-linear-gradient(left , rgba(0, 0, 0, .5) 50%, rgba(0, 0, 0, 0) 50%);
+				border-radius: 50%;
+				z-index: 1;
+				-webkit-animation: wick-color 5s linear forwards;
+			}
+				@-webkit-keyframes wick-color {
+					0%   	{ -webkit-transform:rotate(0deg); }
+					99.9%	{ -webkit-transform:rotate(-90deg); opacity: 1; }
+					100%	{ -webkit-transform:rotate(-90deg); opacity: 0; }
+				}
+	
+		div.bomb-small div.spark {
+			position: absolute;
+			top: -60px;
+			left: 75px;
+			display: block;
+			width: 100px;
+			height: 100px;
+			z-index: 2;
+			opacity: 0;
+			-webkit-animation: spark 5s linear forwards;
+		}
+			@-webkit-keyframes spark {
+				0%   	{ opacity: 0; -webkit-transform:rotate(0deg); }
+				0.1%   	{ opacity: 1; -webkit-transform:rotate(0deg); }
+				99.9%	{ -webkit-transform:rotate(-90deg); opacity: 1; }
+				100%	{ -webkit-transform:rotate(-90deg); opacity: 0; }
+			}
+			div.bomb-small div.spark-colors {
+				position: absolute;
+				top: -75px;
+				left: 12px;
+				display: block;
+				width: 75px;
+				height: 75px;
+				line-height: 75px;
+				z-index: 3;
+				font-size: 150px;
+				color: rgba(255, 255, 255, 0);
+				text-align: center;
+				text-shadow: 
+					0 0 10px #FEFCC9, 
+					5px -5px 15px #FEEC85, 
+					-10px -10px 20px #FFAE34, 
+					10px -20px 25px #EC760C, 
+					-10px -30px 30px #CD4606
+				;
+				opacity: 0;
+				-webkit-animation: spark-colors 5s;
+				-webkit-transform-origin: 50% 100%;
+			}
+				@-webkit-keyframes spark-colors {
+					0% { opacity: .5; -webkit-transform:rotate(0deg); }
+					20% { opacity: 1; }
+					40% { opacity: .9; }
+					60% { opacity: .7; }
+					80% { opacity: .8; }
+					100% { opacity: 1; -webkit-transform:rotate(90deg); }
+				}
+			div.bomb-small div.spark-center {
+				position: absolute;
+				top: -5px;
+				left: 45px;
+				display: block;
+				width: 12px;
+				height: 12px;
+				background-image: -webkit-radial-gradient(50% 50%, circle, rgba(242, 101, 34, .8), rgba(255, 242, 0, 0) 60%);
+				border-radius: 50%;
+				z-index: 3;
+				-webkit-animation: small-spark-center 5s forwards;
+			}
+				@-webkit-keyframes small-spark-center {
+					0%   	{  }
+					100%	{ top: -5px; }
+				}
+		div.fire {
+			position: absolute;
+			display: block;
+			width: 300px;
+			height: 300px;
+			background-image: -webkit-radial-gradient(50% 50%, circle, rgba(242, 101, 34, .8), rgba(255, 242, 0, 0) 60%);
+			z-index: 1;
+			-webkit-animation: fire 0.5s linear 5.5s forwards;
+		}
+			@-webkit-keyframes fire {
+				0%   	{ opacity: 1; }
+				60%   	{ opacity: 1; }
+				100%	{ opacity: 0; -webkit-transform:scale(8); }
+			}
+			
+	</style>	
+	<script>
+	$(document).ready(function(){
+		
+		$('a#party').click(function() {
+			$('div#bomb').hide();
+			var timer = setInterval(party, 500);
+
+			function party() {
+				$('body').append($('<div class="bomb-small"><div class="shake"><div class="cap"></div><div class="bomb-glow"></div><div class="shard one"></div><div class="shard two"></div><div class="shard three"></div><div class="shard four"></div><div class="wick"><div class="wick-cover"></div><div class="wick-color"></div></div><div class="spark"><div class="spark-colors">.</div><div class="spark-center"></div></div><div class="fire"></div></div></div>'));
+			
+				$('div.bomb-small').addClass('ignite');
+			
+				setTimeout(function() {
+					$('div.bomb-small').addClass('explode');
+				}, 4800);
+			
+				setTimeout(function() {
+					clearInterval(timer);
+				}, 10000);
+			}
+			
+			return false
+		});
+		
+	});	
+	</script>
+</head>
+<body>
+	
+	<a href="#" id="party">click</a>
+	
+</body>
+</html>

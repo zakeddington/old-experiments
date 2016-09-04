@@ -1,0 +1,384 @@
+/*	-----------------------------------------------
+
+	Resets And Primitives
+
+	----------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html, body {
+	min-width: 980px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 1.2;
+	font-family: Helvetica, Arial, Sans-Serif;
+	-webkit-font-smoothing: antialiased;
+}
+ol, ul {
+	list-style: none;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+}
+p {
+	color: #333;
+	font-size: 8px;
+	padding: 10px 10px 0;
+	text-align: left;
+}
+
+.right {
+	float: right;
+}
+/*	-----------------------------------------------
+
+	Chrome
+
+	----------------------------------------------- */
+div#content {
+	margin: 50px 0 0;
+	-webkit-perspective: 1200px;
+}
+div.row {
+	background: #ddd;
+	border: 10px solid #eee;
+	margin: 0 auto;
+	position: relative;
+	width: 960px;
+}
+	div.L,
+	div.R,
+	div.T,
+	div.B {
+		display: block;
+		position: absolute;
+	}
+	div.L,
+	div.R {
+		background: #ccc;
+		height: 100%;
+		width: 300px;
+	}
+	div.L {
+		left: 0;
+		-webkit-transform: rotateY(90deg);
+		-webkit-transform-origin: 0 0;
+	}
+	div.R {
+		right: 0;
+		-webkit-transform: rotateY(-90deg);
+		-webkit-transform-origin: 100% 0;
+	}
+	div.T,
+	div.B {
+		background: #bbb;
+		height: 300px;
+		left: 0;
+		width: 100%;
+	}
+	div.T {
+		top: 0;
+		-webkit-transform: rotateX(-90deg);
+		-webkit-transform-origin: 0 0;
+	}
+	div.B {
+		bottom: 0;
+		-webkit-transform: rotateX(90deg);
+		-webkit-transform-origin: 0 100%;
+	}
+
+
+	ul.books {
+		margin: auto;
+		padding: 30px 0 0;
+		text-align: center;
+		width: auto;
+	}
+		ul.books li {
+			display: inline-block;
+			height: 300px;
+			margin: auto;
+			position: relative;
+			width: 50px;
+			-webkit-transform-style: preserve-3d;
+			-webkit-transition: top 0.2s;
+		}
+
+		ul.books li div.return-btn {
+			background: #333;
+			border-radius: 10px;
+			cursor: pointer;
+			display: none;
+			font-size: 12px;
+			line-height: 1.5;
+			position: absolute;
+			top: -35px;
+			width: 100px;
+			-webkit-transform-style: flat !important;
+			-webkit-transform: rotateY(110deg) translateX(150px);
+		}
+		ul.books li div.return-btn:hover {
+			background: #000;
+		}
+			.side {
+				display: block;
+				position: absolute;
+				/*-webkit-backface-visibility: hidden;*/
+			}
+				.page {
+					background: #fff;
+					display: none;
+					height: calc(100% - 10px);
+					position: absolute;
+					top: 5px;
+					width: 100%;
+					-webkit-transform: rotateY(180deg);
+				}
+			div.book-cover,
+			div.book-back {
+				height: 100%;
+				width: 200px;
+			}
+				div.book-cover .page {
+					right: 5px;
+					width: calc(100% - 5px);
+				}
+				h2 {
+					font-size: 20px;
+					font-weight: bold;
+					margin: 50px 10px 0;
+					text-align: center;
+					text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+				}
+			div.flipped-pages {
+				background: none;
+			}
+				div.flipped-pages ol.side.page {
+					height: 100%;
+					left: 195px;
+					right: 0;
+					top: 0;
+					width: 100%;
+				}
+			ol.side.page {
+				cursor: pointer;
+				height: calc(100% - 10px);
+				left: 50px;
+				top: 5px;
+				width: 196px;
+				-webkit-transform: rotateY(90deg);
+				-webkit-transform-origin: 0 0;
+				z-index: 0;
+			}
+			ol.page.last {
+				cursor: default;
+			}
+				ol.side.page li {
+					background: #fff;
+					display: block;
+					height: 100%;
+					position: absolute;
+					width: 100%;
+					z-index: 1;
+					-webkit-backface-visibility: hidden;
+				}
+				ol.side.page li:last-child {
+					-webkit-transform: rotateY(180deg);
+					-webkit-backface-visibility: visible;
+					z-index: 0;
+				}
+				ol.side.page.last li:last-child {
+					-webkit-transform: rotateY(0deg);
+				}
+			div.spine {
+				background: #0175a3;
+				background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+				cursor: pointer;
+				height: 100%;
+				width: 100%;
+			}
+				h3 {
+					height: 50px;
+					left: -125px;
+					line-height: 50px;
+					position: absolute;
+					text-align: center;
+					text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+					top: 125px;
+					width: 300px;
+					-webkit-transform: rotate(-90deg);
+				}
+			div.end {
+				background: #dfdfdf;
+				height: 290px;
+				top: 5px;
+				width: 50px;
+				-webkit-transform: translateZ(-195px);
+			}
+			div.top,
+			div.bottom {
+				height: 195px;
+				width: 50px;
+			}
+			div.book-back {
+				background: #004662;
+				left: 0;
+				-webkit-transform: rotateY(90deg);
+				-webkit-transform-origin: 0 0;
+			}
+			div.book-cover {
+				background: #005b7f;
+				left: 50px;
+				/*background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);*/
+				-webkit-transform: rotateY(90deg);
+				-webkit-transform-origin: 0 0;
+			}
+			div.top {
+				background: #dfdfdf;
+				top: 5px;
+				-webkit-transform: rotateX(-90deg);
+				-webkit-transform-origin: 0 0;
+			}
+			div.bottom {
+				background: #dfdfdf;
+				top: 295px;
+				-webkit-transform: rotateX(-90deg);
+				-webkit-transform-origin: 0 0;
+			}
+
+
+		ul.books li.active {
+			z-index: 100 !important;
+		}
+
+		ul.books > li:hover {
+			top: -20px;
+		}
+		ul.books li.grab:hover {
+			top: 0;
+		}
+
+		ul.books li.grab {
+			-webkit-animation: grab 1.2s ease-in-out forwards;
+		}
+			@-webkit-keyframes grab {
+				0%   	{ -webkit-transform: rotateY(0deg); }
+				50%   	{ -webkit-transform: rotateY(-15deg) rotateX(-15deg) translateZ(250px); }
+				100%   	{ -webkit-transform: rotateY(-105deg) translateX(150px) translateY(30px) translateZ(50px); }
+			}
+
+		ul.books li.return {
+			-webkit-animation: return 1s ease-in-out forwards;
+		}
+			@-webkit-keyframes return {
+				0%   	{ -webkit-transform: rotateY(-105deg) translateX(150px) translateY(30px) translateZ(50px); }
+				50%   	{ -webkit-transform: rotateY(-15deg) rotateX(-15deg) translateZ(250px); }
+				100%   	{ -webkit-transform: rotateY(0deg); }
+			}
+
+		ul.books li.open div.book-cover {
+			-webkit-animation: open-book 1s ease-in-out forwards;
+		}
+			@-webkit-keyframes open-book {
+				0%   	{  }
+				100%   	{ -webkit-transform: rotateY(-40deg); }
+			}
+		ul.books li.open .page {
+			display: block;
+			-webkit-animation: show-page 0.6s ease-in-out forwards;
+		}
+		ul.books li.open ol.side.page {
+			display: block;
+			-webkit-animation: show-page 0.2s ease-in-out forwards;
+		}
+			@-webkit-keyframes show-page {
+				0%		{ opacity: 0; }
+				90%		{ opacity: 0; }
+				100%	{ opacity: 1; }
+			}
+		ul.books li.open div.return-btn {
+			display: block;
+			-webkit-animation: return-btn 2s ease-in-out forwards;
+		}
+			@-webkit-keyframes return-btn {
+				0%   	{ margin-top: 20px; opacity: 0; }
+				80%   	{ margin-top: 20px; opacity: 0; }
+				100%   	{ margin-top: 0; opacity: 1; }
+			}
+
+
+		ul.books li.close div.book-cover {
+			-webkit-animation: close-book 1s ease-in-out forwards;
+		}
+			@-webkit-keyframes close-book {
+				0%   	{ -webkit-transform: rotateY(-40deg); }
+				100%   	{ -webkit-transform: rotateY(90deg); }
+			}
+		ul.books li.close .page {
+			display: block;
+			-webkit-animation: close-page 0.2s ease-in-out forwards;
+		}
+		ul.books li.close ol.side.page {
+			display: block;
+			-webkit-animation: close-page 0.6s ease-in-out forwards;
+		}
+			@-webkit-keyframes close-page {
+				0%		{ opacity: 1; }
+				90%		{ opacity: 1; }
+				100%	{ opacity: 0; }
+			}
+
+		ul.books li.open ol.side.page.flip-left {
+			-webkit-animation: flip-page-left 0.5s ease-in-out forwards;
+		}
+			@-webkit-keyframes flip-page-left {
+				0%		{  }
+				100%	{ -webkit-transform: rotateY(-40deg); }
+			}
+
+			ul.books li.open div.flipped-pages ol.side.page.flip-left {
+				-webkit-animation: flip-page-left2 0.01s ease-in-out forwards;
+			}
+				@-webkit-keyframes flip-page-left2 {
+					0%		{ -webkit-transform: rotateY(180deg); }
+					100%	{ -webkit-transform: rotateY(180deg); }
+				}
+
+		ul.books li.open ol.side.page.flip-right {
+			-webkit-animation: flip-page-right 0.5s ease-in-out forwards;
+		}
+			@-webkit-keyframes flip-page-right {
+				0%		{ -webkit-transform: rotateY(-40deg); }
+				100%	{  }
+			}
+			ul.books li.open div.default-pages ol.side.page.flip-right2 {
+				-webkit-animation: flip-page-right 0.01s ease-in-out forwards;
+			}
+				@-webkit-keyframes flip-page-right2 {
+					0%		{ -webkit-transform: rotateY(-180deg); }
+					100%	{ -webkit-transform: rotateY(-180deg); }
+				}
+

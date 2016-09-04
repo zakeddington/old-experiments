@@ -1,0 +1,94 @@
+#main-container {
+	background: #000;
+	display: block;
+	@include getStageHeight();
+	//height: #{$stageHeight};
+	//min-height: #{$stageHeight};
+	//min-width: #{$stageWidth};
+	//max-height: #{$stageHeight};
+	//max-width: #{$stageWidth};
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	width: #{$stageWidth};
+
+	//@include calc(left, "50% - 768px/2");
+	//@include calc(top, "50% - 1024px/2");
+
+}
+
+#section-container {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.view {	
+	height: 100%;
+	padding-top: 50%;
+	position: absolute;
+	width: 100%;
+
+}
+
+#home-view {
+	input {
+		border: none;
+		border-radius: 3px;
+		font-size: 14px;
+		margin-bottom: 10px;
+		padding: 5px;
+	}
+	input[type=submit] {
+		background: rgba(255,255,255,0.35);
+		color: #fff;
+	}
+}
+
+#game-view {
+	padding-top: 0;
+	
+	h1 {
+		font-size: 60px;
+		margin-top: $stageHeight / 3;
+	}
+
+	h2 {
+		color: rgba(255,255,255,0.5);
+		font-size: 30px;
+	}
+
+	.paddle {
+		background: #fff;
+		//height: 80px;
+		position: absolute;
+		//@include calc(top, '50% - 40px');
+		//width: 15px;
+
+		&#player1 {
+			//left: 10px;
+		}
+		&#player2 {
+			//right: 10px;
+		}
+	}
+
+	#ball {
+		background: #fff;
+		border-radius: 50%;
+		//display: none;
+		//height: 20px;
+		//left: 40%;
+		position: absolute;
+		//top: 40%;
+		//width: 20px;
+	}
+}
+
+// #score-view {
+// 	background: url("#{$viewImages}/screen4.jpg") top left no-repeat;
+// 	@include image-2x("#{$viewImages}/screen4@2x.jpg", 320px, 480px);
+// 	@include image-2x568("#{$viewImages}/screen4@2x568.jpg", 320px, 568px);
+// 	background-color: green;
+// }

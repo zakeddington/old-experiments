@@ -1,0 +1,256 @@
+#main-container {
+	background: $white;
+	display: block;
+	@include getStageHeight();
+	//height: #{$stageHeight};
+	//min-height: #{$stageHeight};
+	//min-width: #{$stageWidth};
+	//max-height: #{$stageHeight};
+	//max-width: #{$stageWidth};
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+	width: $stageWidth;
+
+	//@include calc(left, "50% - 768px/2");
+	//@include calc(top, "50% - 1024px/2");
+
+}
+
+#section-container {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.view {	
+	height: 100%;
+	padding-top: 50%;
+	position: absolute;
+	width: 100%;
+
+}
+
+#home-view {
+	input {
+		border: 1px solid $grey;
+		border-radius: 3px;
+		font-size: 14px;
+		margin-bottom: 10px;
+		padding: 5px;
+	}
+	input[type=submit] {
+		background: $grey;
+		color: $white;
+	}
+	ul {
+		bottom: 20px;
+		color: $grey-light;
+		left: 20px;
+		position: absolute;
+		text-align: left;
+	}
+}
+
+#game-view {
+	background: url($images+'/dots.png') center center repeat;
+	padding-top: 0;
+
+	&:before,
+	&:after {
+		background: url($images+'/bumper-lr.png') center center repeat-y;
+		background-size: 100%;
+		content: '';
+		display: block;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		width: 5px;
+		z-index: 1;
+	}
+	&:before {
+		@include vendor-property-prefix(box-shadow, 1px 5px 5px rgba(0, 0, 0, 0.5));
+		left: 0;
+	}
+	&:after {
+		@include vendor-property-prefix(box-shadow, -1px 5px 5px rgba(0, 0, 0, 0.5));
+		right: 0;
+	}
+	
+	h1 {
+		font-size: 60px;
+		line-height: 1;
+		margin-top: $stageHeight / 2 - 30px;
+		position: relative;
+	}
+	h3 {
+		padding: 5px 10px;
+		position: absolute;
+		top: $stageHeight * 3 / 8;
+	}
+	h3, h3 span {
+		color: $grey;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 1.2;
+		text-align: left;
+	}
+
+	.paddle {
+		background: url($images+'/paddle.png') center center no-repeat;
+		background-size: 100%;
+		border-radius: 50%;
+		position: absolute;
+		@include vendor-property-prefix(box-shadow, -1px 1px 5px rgba(0,0,0,0.5));
+		z-index: 3;
+
+	}
+
+	#puck {
+		background: url($images+'/puck.png') center center no-repeat;
+		background-size: 100%;
+		border-radius: 50%;
+		position: absolute;
+		@include vendor-property-prefix(box-shadow, -1px 1px 5px rgba(0,0,0,0.5));
+		z-index: 3;
+	}
+
+	.goal {
+		display: block;
+		height: 10px;
+		left: 0;
+		position: absolute;
+		width: 100%;
+		z-index: 2;
+
+		&.top {
+			top: 0;
+		}
+		&.bottom {
+			bottom: 0;
+		}
+		
+		li {
+			display: block;
+			float: left;
+			height: 10px;
+			position: relative;
+		}
+
+		li:first-child,
+		li:last-child {
+			background: url($images+'/bumper-tb.png') center center repeat-x;
+			@include calc(width, '(100% - 100px)/2');
+			@include vendor-property-prefix(box-shadow, 0 0 5px rgba(0, 0, 0, 0.5));
+		}
+		li:nth-child(2) {
+			border: 2px solid $blue;
+			border-radius: 50%;
+			height: 100px;
+			top: -45px;
+			width: 100px;
+		}
+	}
+
+	.ice {
+		.center-line {
+			display: block;
+			height: 3px;
+			left: 0;
+			position: absolute;
+			top: ($stageHeight / 2) - 2px;
+			width: 100%;
+
+			&:before,
+			&:after {
+				background: $red;
+				content: '';
+				height: 100%;
+				position: absolute;
+				top: 0;
+				@include calc(width, '(100% - 74px) / 2');
+			}
+			&:before {
+				left: 0;
+			}
+			&:after {
+				right: 0;
+			}
+
+			.center-circle {
+
+				&:before {
+					border: 2px solid $red;
+					border-radius: 50%;
+					content: '';
+					height: 70px;
+					position: absolute;
+					top: -35px;
+					width: 70px;
+					@include calc(left, '50% - 37px');
+				}
+				&:after {
+					background: $red;
+					border-radius: 50%;
+					content: '';
+					height: 10px;
+					position: absolute;
+					top: -3px;
+					width: 10px;
+					@include calc(left, '50% - 5px');
+				}
+			}
+		}
+		.blue-line:before,
+		.blue-line:after {
+			background: $blue;
+			content: '';
+			display: block;
+			height: 2px;
+			left: 0;
+			position: absolute;
+			top: ($stageHeight * 3 / 8) - 1px;
+			width: 100%;
+		}
+		.blue-line:after {
+			top: ($stageHeight * 5 / 8) - 1px;
+		}
+
+		.face-off {
+			position: absolute;
+			left: 0;
+			width: 100%;
+
+			&.top {
+				top: 15%;
+			}
+			&.bottom {
+				bottom: 15%;
+			}
+
+
+			&:before,
+			&:after {
+				border: 2px solid $red;
+				border-radius: 50%;
+				content: '';
+				height: 60px;
+				position: absolute;
+				top: -30px;
+				width: 60px;
+				@include calc(left, '20% - 32px')
+			}
+			&:after {
+				@include calc(left, '80% - 32px')
+			}
+		}
+	}
+}
+
+// #score-view {
+// 	background: url("#{$viewImages}/screen4.jpg") top left no-repeat;
+// 	@include image-2x("#{$viewImages}/screen4@2x.jpg", 320px, 480px);
+// 	@include image-2x568("#{$viewImages}/screen4@2x568.jpg", 320px, 568px);
+// 	background-color: green;
+// }

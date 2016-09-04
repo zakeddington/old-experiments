@@ -1,0 +1,230 @@
+/*	-----------------------------------------------
+
+	Resets And Primitives
+
+	----------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html, body {
+	min-width: 980px;
+	color: #333;
+	font-size: 14px;
+	line-height: 1.5;
+	font-family: Helvetica, Arial, Sans-Serif;
+	-webkit-font-smoothing: antialiased;
+	background: #eee;
+}
+h1 {
+	border-top: 1px solid #ccc;
+	display: block;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	width: 100%;
+}
+h2 {
+	font-size: 18px;
+	font-weight: bold;
+}
+ol, ul {
+	list-style: none;
+}
+a {
+	color: #258dc8;
+	text-decoration: none;
+}
+	a:hover {
+		text-decoration: underline;
+	}
+p {
+	margin-bottom: 20px;
+}
+/*	-----------------------------------------------
+
+	Chrome
+
+	----------------------------------------------- */
+header {
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+}
+header,
+div#content {
+	margin: 0 auto;
+	position: relative;
+	width: 1020px;
+	z-index: 1;
+}
+	div#content h1:first-child {
+		border: none;
+	}
+	div#content > ul {
+		margin-bottom: 10px;
+	}
+		li:before {
+			content: '\25B8';
+			padding-right: 5px;
+		}
+
+	div.chart-wrap {
+		background: #fff;
+		display: block;
+		margin-top: 40px;
+		position: relative;
+		width: 100%;
+	}
+		div.chart-wrap ul.lines {
+			display: block;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+		}
+			div.chart-wrap ul.lines li {
+				border-bottom: 1px solid #eee;
+				display: block;
+				margin-bottom: -1px;
+				overflow: hidden;
+				position: relative;
+			}
+			div.chart-wrap ul.lines li:before {
+				display: none;
+			}
+		div.chart-label {
+			display: block;
+			font-weight: bold;
+			height: 0;
+			left: -20px;
+			position: absolute;
+		}
+		div.chart-label.max {
+			top: -10px;
+		}
+		div.chart-label.min {
+			bottom: 10px;
+		}
+
+
+	div.chart-wrap h1 {
+		border: none;
+		position: absolute;
+		top: -40px;
+	}
+	ul.chart {
+		display: block;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+		ul.chart > li {
+			display: inline-block;
+			height: 100%;
+			margin: 0 1%;
+			position: relative;
+			max-width: 10%;
+		}
+		ul.chart > li:before {
+			display: none;
+		}
+			ul.chart li div.bar {
+				background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
+				background-color: #258dc8;
+				bottom: 0;
+				display: block;
+				height: 0;
+				left: 0;
+				position: absolute;
+				width: 100%;
+			}
+				ul.chart li:hover div.bar {
+					background: #258dc8;
+				}
+					ul.chart li div.tooltip {
+						background: rgba(255,255,255,0.9);
+						bottom: 100%;
+						box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+						box-sizing: border-box;
+						display: none;
+						font-size: 10px;
+						left: calc(50% - 100px);
+						margin-bottom: 10px;
+						padding: 10px;
+						position: absolute;
+						width: 200px;
+						z-index: 1;
+					}
+						ul.chart li:hover div.tooltip {
+							display: block;
+						}
+						ul.chart li div.tooltip:after {
+							border-left: 10px solid transparent;
+							border-right: 10px solid transparent;
+							border-top: 20px solid rgba(255,255,255,0.9);
+							bottom: -20px;
+							content: '';
+							display: block;
+							height: 0;
+							margin: 0 auto;
+							position: absolute;
+							width: 0;
+							left: calc(50% - 10px);
+						}
+							ul.chart li div.tooltip h2 {
+								font-size: 11px;
+								margin: 0;
+							}
+							ul.chart li div.tooltip ul li {
+								overflow: hidden;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+								width: 100%;
+							}
+							ul.chart li div.tooltip ul li.title {
+								font-weight: bold;
+							}
+							ul.chart li div.tooltip ul li.title:before {
+								display: none;
+							}
+
+			ul.chart li p {
+				display: block;
+				font-size: 12px;
+				left: 0;
+				position: absolute;
+				text-align: center;
+				top: 320px;
+				min-width: 100%;
+			}
+			ul.chart li p span {
+				color: #999;
+				display: block;
+			}
+
+
+
+

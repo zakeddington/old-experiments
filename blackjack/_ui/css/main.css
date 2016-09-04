@@ -1,0 +1,350 @@
+
+
+/*	-----------------------------------------------
+
+	Resets And Primitives
+
+	----------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+iframe {
+	display: block;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	background: #eee;
+	color: #000;
+	font-family: Futura, Arial, Helvetica, Sans-Serif;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1.5;
+	min-width: 980px;
+	text-align: center;
+	text-transform: uppercase;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 20px;
+	padding: 0;
+}
+h3, h4 {
+	font-size: 14px;
+}
+
+ol, ul {
+	list-style: none;
+	margin-bottom: 20px;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	background: #39f;
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+	border: 1px solid #eee;
+	border-radius: 8px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0;
+	min-width: 50px;
+	padding: 5px 20px;
+	text-decoration: none;
+}
+	a:hover {
+		background: #069;
+	}
+sup {
+	font-size: 0.6em;
+	vertical-align: text-top;
+}
+sub {
+	font-size: 0.6em;
+	vertical-align: baseline;
+}
+strong, b {
+	font-weight: bold;
+}
+em, i {
+	font-style: italic;
+}
+/*	-----------------------------------------------
+
+	Custom Primitives
+
+	----------------------------------------------- */
+
+div.hr {
+	clear: both;
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin: 20px 0;
+	background: #000;
+	overflow: hidden;
+}
+	div.hr hr {
+		display: none;
+	}
+div.clear {
+	clear: both;
+	height: 1px;
+	margin-top: -1px;
+	overflow: hidden;
+}
+
+
+/*	-----------------------------------------------
+
+	Utility Classes
+
+	----------------------------------------------- */
+
+.center {
+	text-align: center;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.invisible {
+	display: none;
+}
+.offscreen {
+	display: block;
+	left: -3000px;
+	position: absolute;
+	top: -3000px;
+}
+.red {
+	color: #c00;
+}
+.win {
+	color: #39f;
+}
+
+/*	-----------------------------------------------
+
+	The Stuff
+
+	----------------------------------------------- */
+h2#no-cards {
+	display: none;
+}
+div#deck {
+	left: 20px;
+	position: absolute;
+	top: 50px;
+	z-index: 1;
+}
+	div#deck ul {
+
+	}
+		div#deck ul li {
+			background: url('../img/card-back.png'), -webkit-radial-gradient(center center, rgba(0,118,163,1) 40%, rgba(0,72,99,1) 100%);
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			cursor: pointer;
+			height: 180px;
+			margin-top: -180px;
+			position: relative;
+			width: 110px;
+		}
+			div#deck ul li:first-child {
+				margin-top: 0;
+			}
+div#chips {
+	left: 20px;
+	position: absolute;
+	text-align: left;
+	top: 370px;
+	width: 250px;
+	z-index: 1;
+}
+	div#chips h4 {
+		margin-bottom: 10px;
+	}
+
+div.hand,
+div.empty-seat {
+	background: #fff;
+	border-radius: 25px;
+	margin: 30px auto;
+	min-height: 260px;
+	padding: 10px 0 40px;
+	position: relative;
+	width: 50%;
+}
+div#dealer {
+	padding: 10px 0 0;
+	min-height: 300px;
+}
+	div.hand h2 {
+	}
+		div.hand h2 span {
+			color: #666;
+			font-weight: normal;
+			margin-left: 10px;
+		}
+
+	div.hand ul,
+	div.empty-seat ul {
+		padding: 0 40px;
+	}
+	div.hand ul.buttons {
+		bottom: 10px;
+		display: block;
+		margin: 0;
+		position: absolute;
+		padding: 0;
+		width: 100%;
+	}
+		div.hand ul li,
+		div.empty-seat ul li {
+			display: inline-block;
+			height: 180px;
+			margin: 0 5px;
+			position: relative;
+			text-align: center;
+			width: 110px;
+			-webkit-perspective: 1000;
+		}
+		div.hand ul li.expand {
+			width: 0;
+			-webkit-animation: expand 0.1s ease-in forwards;
+		}
+			@-webkit-keyframes expand {
+				0%   	{ width: 0; }
+				100%	{ width: 110px; }
+			}
+		div.hand ul.placeholder li,
+		div.empty-seat ul.placeholder li {
+			border: 1px dashed #ccc;
+			border-radius: 10px;
+		}
+		div.hand ul.buttons li {
+			height: auto;
+			width: auto;
+		}
+			div.hand ul li div.card {
+				display: inline-block;
+				font-weight: bold;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				width: 100%;
+				-webkit-transform-style: preserve-3d;
+		  		-webkit-transition: all 0.3s linear;
+				-webkit-transform: rotateY(180deg);
+			}
+			div.hand ul li.flip div.card {
+				-webkit-transform: rotateY(0deg);
+			}
+				div.hand ul li div div {
+					background: #fff;
+					border: 1px solid #ccc;
+					border-radius: 10px;
+					display: block;
+					height: 100%;
+					position: absolute;
+					width: 100%;
+					z-index: 1;
+					-webkit-backface-visibility: hidden;
+				}
+					div.hand ul li div div.back {
+						background: url('../img/card-back.png'), -webkit-radial-gradient(center center, rgba(0,118,163,1) 40%, rgba(0,72,99,1) 100%);
+						z-index: 0;
+						-webkit-transform: rotateY(180deg);
+					}
+						div.hand ul li span {
+							display: block;
+							position: absolute;
+						}
+							div.hand ul li span.top {
+								left: 10px;
+								top: 0;
+							}
+							div.hand ul li span.bottom {
+								bottom: 0;
+								right: 10px;
+							}
+							div.hand ul li span.suit {
+								font-size: 100px;
+								left: 0;
+								line-height: 180px;
+								top: 0;
+								width: 100%;
+							}
+
+
+div.result h2 {
+	display: none;
+	font-size: 40px;
+	line-height: 1;
+	margin: 0;
+}
+
+ul.buttons li {
+	display: inline-block;
+	width: auto;
+}
+	ul.buttons li.cant-split {
+		display: none;
+		font-size: 12px;
+		font-weight: normal;
+	}
+	ul.buttons li a {
+		/*display: none;*/
+	}
+		ul.buttons li.stay a {
+			background: #999;
+		}
+
+div#dealer {
+	min-height: 240px;
+}
+
+div.drop-hover {
+	box-shadow: 0 0 10px #ddd;
+}
+

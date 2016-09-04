@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'icons';
+  src: url('../font/icons.eot?78459237');
+  src: url('../font/icons.eot?78459237#iefix') format('embedded-opentype'),
+       url('../font/icons.woff?78459237') format('woff'),
+       url('../font/icons.ttf?78459237') format('truetype'),
+       url('../font/icons.svg?78459237#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'icons';
+    src: url('../font/icons.svg?78459237#icons') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-americanfootball:before { content: '\21'; } /* '!' */
+.icon-cannon:before { content: '\60'; } /* '`' */
+.icon-batman:before { content: '\23'; } /* '#' */
+.icon-binoculars:before { content: '\24'; } /* '$' */
+.icon-bomb:before { content: '\25'; } /* '%' */
+.icon-bow:before { content: '\26'; } /* '&amp;' */
+.icon-bowling:before { content: '\27'; } /* ''' */
+.icon-controllernes:before { content: '\28'; } /* '(' */
+.icon-controllerps:before { content: '\29'; } /* ')' */
+.icon-croisant:before { content: '\30'; } /* '0' */
+.icon-darthvader:before { content: '\31'; } /* '1' */
+.icon-die:before { content: '\32'; } /* '2' */
+.icon-eightball:before { content: '\54'; } /* 'T' */
+.icon-eye2:before { content: '\55'; } /* 'U' */
+.icon-football:before { content: '\56'; } /* 'V' */
+.icon-ghost:before { content: '\57'; } /* 'W' */
+.icon-island:before { content: '\58'; } /* 'X' */
+.icon-jason:before { content: '\59'; } /* 'Y' */
+.icon-lamp:before { content: '\46'; } /* 'F' */
+.icon-lifeempty:before { content: '\45'; } /* 'E' */
+.icon-axe:before { content: '\22'; } /* '&quot;' */
+.icon-magnet:before { content: '\34'; } /* '4' */
+.icon-orange:before { content: '\35'; } /* '5' */
+.icon-pacman:before { content: '\36'; } /* '6' */
+.icon-paperairplane:before { content: '\37'; } /* '7' */
+.icon-paw:before { content: '\38'; } /* '8' */
+.icon-peace:before { content: '\39'; } /* '9' */
+.icon-rocket:before { content: '\40'; } /* '@' */
+.icon-science:before { content: '\41'; } /* 'A' */
+.icon-starempty:before { content: '\42'; } /* 'B' */
+.icon-sunglasses:before { content: '\43'; } /* 'C' */
+.icon-sword:before { content: '\44'; } /* 'D' */
+.icon-airplane:before { content: '\47'; } /* 'G' */
+.icon-unif6fc:before { content: '\48'; } /* 'H' */
+.icon-unif6f2:before { content: '\49'; } /* 'I' */
+.icon-unif623:before { content: '\50'; } /* 'P' */
+.icon-unif628:before { content: '\51'; } /* 'Q' */
+.icon-oneup:before { content: '\52'; } /* 'R' */
+.icon-submarine:before { content: '\53'; } /* 'S' */
+.icon-lightning2:before { content: '\33'; } /* '3' */

@@ -1,0 +1,154 @@
+/*	-----------------------------------------------
+
+	Resets And Primitives
+
+	----------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html, body {
+	min-width: 980px;
+	color: #333;
+	font-size: 14px;
+	line-height: 22px;
+	font-family: Helvetica, Arial, Sans-Serif;
+	-webkit-font-smoothing: antialiased;
+	background: #eee;
+}
+ol, ul {
+	list-style: none;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+}
+p {
+	margin-bottom: 20px;
+}
+/*	-----------------------------------------------
+
+	Chrome
+
+	----------------------------------------------- */
+div#content {
+	margin: 100px auto 0;
+	position: relative;
+	width: 960px;
+	z-index: 1;
+}
+	nav {
+		display: block;
+		height: 50px;
+		margin-bottom: 20px;
+		position: relative;
+	}
+		h2 {
+			background: green;
+			color: #fff;
+			cursor: pointer;
+			font-weight: bold;
+			height: 50px;
+		}
+			h2 a {
+				background: rgba(0,0,0,0.1);
+				display: block;
+				height: 30px;
+				line-height: 30px;
+				padding: 10px;
+				position: relative;
+				z-index: 1;
+			}
+				h2 a:after {
+					content: "▶";
+					display: inline-block;
+					font-size: 10px;
+					margin-left: 10px;
+				}
+				h2 a.open:after {
+					content: "▼";
+					display: inline-block;
+					margin-left: 10px;
+				}
+					h2 a:hover {
+						background: rgba(0,0,0,0.2);
+					}
+		ul#menu {
+			display: block;
+			position: relative;
+			width: 100%;
+		}
+			ul#menu li {
+				background: darkgreen;
+				color: #fff;
+				display: block;
+				height: 50px;
+				position: relative;
+				visibility: hidden;
+				width: 100%;
+				-webkit-transform-origin: 50% 0%;
+				-webkit-transform-style: preserve-3d;
+				-webkit-transform: perspective(1500px) rotateX(180deg);
+			}
+				ul#menu li div {
+					background: green;
+					display: block;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					width: 100%;
+					z-index: -1;
+					-webkit-backface-visibility: hidden;
+				}
+					ul#menu li div a {
+						display: block;
+						height: 30px;
+						line-height: 30px;
+						padding: 10px;
+					}
+						ul#menu li div a:hover {
+							background: rgba(255,255,255,0.1);
+						}
+
+			ul#menu li.flip-down {
+				-webkit-animation: flip-down 0.5s ease-in-out forwards;
+				visibility: visible;
+			}
+			@-webkit-keyframes flip-down {
+				0%   	{ -webkit-transform: perspective(1500px) rotateX(180deg); }
+				50%   	{ -webkit-transform: perspective(1500px) rotateX(-30deg); }
+				70%   	{ -webkit-transform: perspective(1500px) rotateX(30deg); }
+				85%   	{ -webkit-transform: perspective(1500px) rotateX(-15deg); }
+				100%   	{ -webkit-transform: perspective(1500px) rotateX(0deg); }
+			}
+
+			ul#menu li.flip-up {
+				-webkit-animation: flip-up 0.5s ease-in-out forwards; 
+				visibility: visible;
+			}
+			@-webkit-keyframes flip-up {
+				0%   	{ -webkit-transform: perspective(1500px) rotateX(0deg); }
+				100%   	{ -webkit-transform: perspective(1500px) rotateX(180deg); visibility: hidden; }
+			}
+

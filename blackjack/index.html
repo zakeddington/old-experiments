@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr" class="no-js">
+<head>
+	<link rel="stylesheet" href="_ui/css/main.css" />
+	<script src="_ui/js/jquery.1.8.3.min.js"></script>
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>-->
+	<script src="_ui/js/blackjack.js"></script>
+</head>
+<body>
+
+	<div id="deck">
+		<ul>
+		</ul>
+	</div>
+	<div id="chips">
+		<h3 id="player-chips">Player Chips: <span></span></h3>
+		<h4 id="current-bet">Current Bet: <span></span></h4>
+		<h4 id="split-bet">Split Bet: <span></span></h4>
+	</div>
+	<div id="table">
+		<div id="dealer" class="hand">
+			<h2>Dealer <span></span></h2>
+			<ul class="cards"></ul>
+			<ul class="placeholder">
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="empty-seat">
+			<h2>Player</h2>
+			<ul class="placeholder">
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<h2 id="no-cards">Loading a new deck. Please wait...</h2>
+	<ul class="buttons">
+		<li><a href="#" id="play">Play Again?</a></li>
+		<li id="bets">
+			<h2>Place Your Bet</h2>
+			<ul>
+				<li><a href="#" id="bet10">10</a></li>
+				<li><a href="#" id="bet20">20</a></li>
+				<li><a href="#" id="bet30">30</a></li>
+				<li><a href="#" id="bet40">40</a></li>
+				<li><a href="#" id="bet50">50</a></li>
+				<li><a href="#" id="all">ALL IN</a></li>
+			</ul>
+		</li>
+	</ul>
+		<!--
+		<div id="player" class="hand">
+			<h2>Player <span></span></h2>
+			<ul class="cards"></ul>
+			<ul class="placeholder">
+				<li></li>
+				<li></li>
+			</ul>
+
+			<ul class="buttons">
+				<li><a href="#" class="stay">Stay</a></li>
+				<li><a href="#" class="hit">Hit Me!</a></li>
+				<li><a href="#" class="split">Split</a></li>
+			</ul>
+		</div>
+		<div id="winner">
+			<h2></h2>
+		</div>
+		-->
+</body>
+</html>

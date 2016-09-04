@@ -1,0 +1,355 @@
+/*	-----------------------------------------------
+
+	Resets And Primitives
+
+	----------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html, body {
+	min-width: 980px;
+	color: #333;
+	font-size: 14px;
+	line-height: 22px;
+	font-family: 'Futura', 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+	-webkit-font-smoothing: antialiased;
+	background: #eee;
+}
+h1 {
+	font-size: 50px;
+	line-height: 60px;
+	margin-bottom: 40px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 1px 1px 1px #fff;
+}
+	h1 span {
+		display: block;
+		font-size: 14px;
+		line-height: 22px;
+		font-weight: normal;
+		text-align: center;
+		text-transform: none;
+	}
+h2 {
+	font-size: 24px;
+	line-height: 34px;
+	margin-bottom: 20px;
+}
+ol, ul {
+	list-style: none;
+	margin-bottom: 20px;
+}
+p {
+	margin-bottom: 10px;
+}
+	
+/*	-----------------------------------------------
+
+	Custom Primitives
+
+	----------------------------------------------- */
+
+div.clear {
+	clear: both;
+	height: 1px;
+	margin-top: -1px;
+	overflow: hidden;
+}
+
+/*	-----------------------------------------------
+
+	Chrome
+
+	----------------------------------------------- */
+div#content {
+	position: relative;
+	width: 960px;
+	margin: 50px auto 0;
+	z-index: 1;
+}
+	div.instructions {
+		display: inline-block;
+		width: 590px;
+		padding: 90px 0 0;
+	}
+		div.instructions label {
+			float: right;
+			display: inline-block;
+			height: 30px;
+			padding: 0 15px;
+			line-height: 30px;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: bold;
+			border-radius: 15px;
+			background: #333;
+		}
+			div.instructions label:hover {
+				background: #666;
+			}
+	ul#stage {
+		width: 100%;
+		text-align: center;
+	}
+		ul#stage li {
+			display: inline-block;
+		}
+			input { display: none; }
+			label { cursor: pointer; }
+			
+			ul#stage label {
+				position: relative;
+				display: inline-block;
+				width: 200px;
+				height: 300px;
+				margin: 0 40px;
+				text-align: center;
+				-webkit-perspective: 500px;
+				-webkit-perspective-origin: 50% 50%;
+			}
+			ul#stage input:checked + label div.door {
+				top: -55%;
+				-webkit-transform: rotateX(80deg)  scale(1.2,0.75);
+				z-index: 2;
+			}
+			
+			ul#stage li div.door {
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 100%;
+				margin: auto;
+				text-align: center;
+				-webkit-transition: all 0.5s ease-in-out;
+				z-index: 2;
+				overflow: hidden;
+			}
+				ul#stage li div.door1 { background: #f7941d; }
+				ul#stage li div.door2 { background: #2e3192; }
+				ul#stage li div.door3 { background: #598527; }
+				
+					ul#stage li div.door h2 {
+						position: relative;
+						width: 100%;
+						height: 100%;
+						font-size: 90px;
+						line-height: 310px;
+						font-weight: bold;
+						color: #eee;
+						overflow: hidden;
+						text-align: center;
+						z-index: 4;
+					}
+					ul#stage li div.door span {
+						position: absolute;
+						display: block;
+						opacity: .15;
+						background: #fff;
+						border: 5px solid #eee;
+						border-radius: 50%;
+					}
+						ul#stage li div.door span:nth-child(1) {
+							width: 250px;
+							height: 250px;
+							top: 20px;
+							left: -30px;
+							z-index: 1;
+						}
+						ul#stage li div.door span:nth-child(2) {
+							width: 200px;
+							height: 200px;
+							top: 45px;
+							left: -5px;
+							background: #333;
+							z-index: 2;
+						}
+						ul#stage li div.door span:nth-child(3) {
+							width: 100px;
+							height: 100px;
+							top: 95px;
+							left: 45px;
+							z-index: 3;
+						}
+						
+			ul#stage li div.prize {
+				position: relative;
+				display: block;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+				-webkit-perspective: 500;
+				-webkit-perspective-origin: 50% 50%;
+				overflow: hidden;
+				z-index: 1;
+			}
+				ul#stage li div.prize div {
+					position: absolute;
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+					ul#stage li div.prize div.item {
+						z-index: 5;
+					}
+						ul#stage li div.prize1 div.item {
+							background: url('../img/trollface.png') center center no-repeat;
+						}
+						ul#stage li div.prize2 div.item {
+							background: url('../img/jukebox-animated.gif') center 80px no-repeat;
+							background-size: 70% 70%;
+						}
+						ul#stage li div.prize3 div.item {
+							background: url('../img/bike.png') center 100px no-repeat;
+						}
+					
+					ul#stage li div.prize div.T {
+						background: #ddd;
+						-webkit-transform: rotateX(90deg) translateZ(150px);
+						z-index: 4;
+					}
+					ul#stage li div.prize div.B {
+						background: #ddd;
+						-webkit-transform: rotateX(-90deg) translateZ(150px);
+						z-index: 3;
+					}
+					ul#stage li div.prize div.R {
+						background: #ccc;
+						-webkit-transform: rotateY(90deg) translateZ(92px);
+						z-index: 2;
+					}
+					ul#stage li div.prize div.L {
+						background: #ccc;
+						-webkit-transform: rotateY(-90deg) translateZ(92px);
+						z-index: 1;
+					}
+					
+			div.box-wrap {
+				position: relative;
+				float: right;
+				display: inline-block;
+				margin-top: 100px;
+				-webkit-perspective: 1800;
+				-webkit-perspective-origin: 20% 70%;
+			}
+				div.box {
+					position: relative;
+					float: right;
+					margin: 0;
+					height: 200px;
+					width: 200px;
+					-webkit-transition: all 0.3s ease-in-out;
+					-webkit-transform-style: preserve-3d;
+					-webkit-transform: rotateY(10deg);
+					z-index: 3;
+				}
+				div.box-wrap input:checked + label div.box {
+					-webkit-transform: translateY(-150px) rotateY(-30deg) rotateX(5deg);
+				}
+				div.box-wrap input:checked + label div.box-shadow {
+					-webkit-transform: rotateY(-30deg);
+				} 
+					div.side {
+						position: absolute;
+						height: 100%;
+						width: 100%;
+						overflow: hidden;
+					}
+						div.top		{ -webkit-transform: rotateX(90deg) translateZ(100px); background: #ba4d50; }
+						div.front	{ -webkit-transform: translateZ(100px); background: #9e0b0f; }
+						div.right	{ -webkit-transform: rotateY(90deg) translateZ(100px); background: #8a0f12; }
+						div.back	{ -webkit-transform: rotateY(180deg) translateZ(100px); background: #650508; }
+						div.left	{ -webkit-transform: rotateY(-90deg) translateZ(100px); background: #ba4d50; }
+						div.bottom	{ -webkit-transform: rotateX(-90deg) translateZ(100px); display: none; }
+						
+					div.side h2 {
+						position: relative;
+						width: 100%;
+						height: 100%;
+						font-size: 140px;
+						line-height: 220px;
+						font-weight: bold;
+						color: #eee;
+						overflow: hidden;
+						text-align: center;
+						z-index: 3;
+					}
+					div.side span {
+						position: absolute;
+						display: block;
+						opacity: .15;
+						background: #fff;
+						border: 5px solid #eee;
+						border-radius: 50%;
+					}
+						div.side span:nth-child(1) {
+							width: 200px;
+							height: 200px;
+							top: -5px;
+							left: -5px;
+							background: #333;
+							z-index: 1;
+						}
+						div.side span:nth-child(2) {
+							width: 100px;
+							height: 100px;
+							top: 45px;
+							left: 45px;
+							z-index: 2;
+						}
+				div.box-shadow {
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					margin: 0;
+					height: 200px;
+					width: 200px;
+					-webkit-transition: all 0.5s ease-in-out;
+					-webkit-transform-style: preserve-3d;
+					-webkit-transform: rotateY(10deg);
+					z-index: 1;
+				}
+					div.shadow {
+						position: absolute;
+						height: 100%;
+						width: 100%;
+						overflow: hidden;
+						background: #ccc;
+						-webkit-transform: rotateX(-90deg) translateZ(100px);
+					}
+					
+				div.box-wrap div.prize {
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					display: block;
+					width: 200px;
+					height: 150px;
+					background: url('../img/cash.png') 0 0 no-repeat;
+					z-index: 2;
+				}
+
+

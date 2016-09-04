@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+	<meta charset="utf-8" />	
+	<title>Time Bomb</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<script src="_ui/js/bomb.js"></script>
+	<link href="_ui/css/bomb.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+	<a href="#" id="party">Party Mode?</a>
+	
+	<div id="drag-zippo">
+		<a href="#" id="zippo">
+			<div class="top"></div>
+			<div class="bottom"></div>
+			<div class="tip"></div>
+			<div class="wheel"></div>
+			<div class="hinge"></div>
+			<div class="flame"><span>.</span></div>
+		</a>
+		<ul class="instructions">
+			<li><span></span>Click to Open</li>
+			<li><span></span>Drag to Light Fuse</li>
+		</ul>
+	</div>
+	
+	<div id="bomb">
+		<div class="shake">
+			<ol id="timer">
+				<li>5</li>
+				<li>4</li>
+				<li>3</li>
+				<li>2</li>
+				<li>1</li>
+			</ol>
+			<div class="cap"></div>
+			<div class="bomb-glow"></div>
+			<div class="shard one"></div>
+			<div class="shard two"></div>
+			<div class="shard three"></div>
+			<div class="shard four"></div>
+			<div class="wick">
+				<div class="wick-cover"></div>
+				<div class="wick-color"></div>
+			</div>
+			<div class="spark">
+				<div class="spark-colors">.</div>
+				<div class="spark-center"></div>
+			</div>
+			<h1>
+				Time Bomb
+				<span>brought to you by CSS3</span>
+			</h1>
+			<div class="fire"></div>
+		</div>
+	</div>
+	
+	<div id="bomb-shadow">
+		<div class="wick-shadow"></div>
+	</div>
+	<div id="zippo-shadow" class="drag"></div>
+	
+</body>
+</html>
